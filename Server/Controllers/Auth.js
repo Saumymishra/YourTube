@@ -10,7 +10,7 @@ export const login = async (req, res) => {
                 const newuser = await users.create({ email });
                 const token = jwt.sign({
                     email: newuser.email, id: newuser._id
-                }, process.env.JWT_SECERT, {
+                }, process.env.JWT_SECRET, {
                     expiresIn: "1h"
                 }
                 )
@@ -23,7 +23,7 @@ export const login = async (req, res) => {
         } else {
             const token = jwt.sign({
                 email: extinguser.email, id: extinguser._id
-            }, process.env.JWT_SECERT, {
+            }, process.env.JWT_SECRET, {
                 expiresIn: "1h"
             }
             )
