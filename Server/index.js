@@ -5,8 +5,8 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import videoroutes from './Routes/video.js';
 import userroutes from "./Routes/User.js";
-import path from 'path';
 import commentroutes from './Routes/comment.js';
+import path from 'path';
 
 dotenv.config();
 const app = express();
@@ -29,21 +29,21 @@ app.use('/uploads', express.static(path.join('uploads')));
 
 // Root route
 app.get('/', (req, res) => {
-    res.send("Your tube is working");
+    res.send("YourTube is working");
 });
 
 // Additional middlewares
 app.use(bodyParser.json());
 
 // Routes for user, video, and comment
-app.use('/user', userroutes);
-app.use('/video', videoroutes);
-app.use('/comment', commentroutes);
+app.use('/user', userroutes);  // User-related routes
+app.use('/video', videoroutes);  // Video-related routes
+app.use('/comment', commentroutes);  // Comment-related routes
 
 // Set Cross-Origin-Opener-Policy and Cross-Origin-Embedder-Policy headers
 app.use((req, res, next) => {
-    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin'); // Prevent interaction with cross-origin windows
-    res.setHeader('Cross-Origin-Embedder-Policy', 'unsafe-none'); // Allow cross-origin embedding
+    res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+    res.setHeader('Cross-Origin-Embedder-Policy', 'unsafe-none');
     next();
 });
 
@@ -57,8 +57,8 @@ app.listen(PORT, () => {
 const DB_URL = process.env.DB_URL;
 mongoose.connect(DB_URL)
     .then(() => {
-        console.log("Mongodb Database connected");
+        console.log("MongoDB Database connected");
     })
     .catch((error) => {
-        console.log(error);
+        console.error("MongoDB connection error:", error);
     });
