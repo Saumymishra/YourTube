@@ -7,6 +7,10 @@ import videoroutes from './Routes/video.js';
 import userroutes from "./Routes/User.js";
 import commentroutes from './Routes/comment.js';
 import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url)); 
 
 dotenv.config();
 const app = express();
@@ -25,7 +29,7 @@ app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 
 // Static file serving for uploads
-app.use('/uploads', express.static(path.join('uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Root route
 app.get('/', (req, res) => {

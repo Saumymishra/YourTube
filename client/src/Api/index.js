@@ -25,6 +25,10 @@ export const uploadvideo = (filedata) =>
 export const getvideos = () => API.get("/video/getvideos");
 export const likevideo = (id, Like) => API.patch(`/video/like/${id}`, { Like });
 export const viewsvideo = (id) => API.patch(`/video/view/${id}`);
+export const downloadVideo = (videoId) =>
+    API.get(`/video/download/${videoId}`, {
+      responseType: "blob", // Required to receive binary data
+    });
 
 // Optionally: Fetch qualities for a video
 export const getVideoQualities = (videoId) => API.get(`/video/qualities/${videoId}`);

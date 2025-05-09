@@ -34,6 +34,7 @@
     gap: 10px;
   }
   
+  
   /* Playback */
   .playback-controls {
     display: flex;
@@ -56,7 +57,7 @@
   }
   
   .progress-bar {
-    width: 350px;
+    width:550px;
     margin-right: 10px;
     cursor: pointer;
     accent-color: white;
@@ -178,5 +179,19 @@
     color: #fff;
   }
   
-  
+  /* Download Button */
+.download-btn button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 8px;
+  transition: transform 0.2s ease;
+}
+
+.download-btn button:hover {
+  transform: scale(1.2);
+}
+
   
