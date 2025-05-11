@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import logo from "./logo.ico"
 import "./Navbar.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, generatePath } from "react-router-dom"
+import { Link, generatePath, useNavigate } from "react-router-dom"
 import { RiVideoAddLine } from "react-icons/ri"
 import { IoMdNotificationsOutline } from "react-icons/io"
 import { BiUserCircle } from "react-icons/bi"
@@ -12,6 +12,8 @@ import axios from "axios"
 import { login } from "../../action/auth"
 import { useGoogleLogin,googleLogout } from '@react-oauth/google';
 import { setcurrentuser } from '../../action/currentuser';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faVideo } from "@fortawesome/free-solid-svg-icons";
 
 import {jwtDecode} from "jwt-decode"
 const Navbar = ({ toggledrawer, seteditcreatechanelbtn }) => {
@@ -19,7 +21,7 @@ const Navbar = ({ toggledrawer, seteditcreatechanelbtn }) => {
     const [user, setuser] = useState(null)
     const [profile, setprofile] = useState([])
     const dispatch = useDispatch()
-   
+    const navigate = useNavigate()
 
     const currentuser = useSelector(state => state.currentuserreducer);
     // console.log(currentuser)
@@ -95,10 +97,10 @@ const Navbar = ({ toggledrawer, seteditcreatechanelbtn }) => {
                     </Link>
                 </div>
                 <Searchbar />
-                <RiVideoAddLine size={22} className={"vid_bell_Navbar"} />
+                <FontAwesomeIcon className="vid_bell_Navbar" onClick={() => navigate("/call")} icon={faVideo} size={22} />
                 <div className="apps_Box">
                     <p className="appBox"></p>
-                    <p className="appBox"></p>
+                    <p className="appBox"></p>  
                     <p className="appBox"></p>
                     <p className="appBox"></p>
                     <p className="appBox"></p>

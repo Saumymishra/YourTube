@@ -43,9 +43,9 @@ const Videopage = () => {
   }
 
   // Construct video URL with fixed path
-  const videoUrl = `http://localhost:5000/uploads/${vv?.filepath.replace(/\\/g, "/")}`;
+  const videoUrl = `http://localhost:5000/uploads/qualities/${vv?.filepath.replace(/\\/g, "/")}`;
   // Debug logs
-//   console.log("Vid:",vid)
+  // console.log("Vid:",vid)
 //   console.log("Redux currentuser:", currentuser);
 //   console.log("Passed user to VideoPlayer:", currentuser?.result);
 
