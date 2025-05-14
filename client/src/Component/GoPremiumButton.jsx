@@ -6,7 +6,7 @@ const GoPremiumButton = ({ userId }) => {
     try {
       // 1. Create Razorpay order
       const { data } = await axios.post(
-        "http://localhost:5000/user/create-order"
+        "https://your-tube-4yf7.onrender.com/user/create-order"
       );
 
       const options = {
@@ -18,7 +18,7 @@ const GoPremiumButton = ({ userId }) => {
         order_id: data.orderId,
         handler: async function (response) {
           // 2. Verify payment
-          await axios.post("http://localhost:5000/user/verify-payment", {
+          await axios.post("https://your-tube-4yf7.onrender.com/user/verify-payment", {
             razorpay_order_id: response.razorpay_order_id,
             razorpay_payment_id: response.razorpay_payment_id,
             razorpay_signature: response.razorpay_signature,

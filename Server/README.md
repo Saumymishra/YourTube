@@ -104,8 +104,8 @@ Server/
 ### Installation
 1. Clone the repository:
 ```bash
-git clone [https://github.com/yourusername/yourtube.git](https://github.com/yourusername/yourtube.git)
-cd yourtube/Server
+git clone [https://github.com/Vashu2003/Your-Tube.git](https://github.com/Vashu2003/Your-Tube.git)
+cd Your-Tube/Server
 ```
 2. Install dependencies:
 ```bash

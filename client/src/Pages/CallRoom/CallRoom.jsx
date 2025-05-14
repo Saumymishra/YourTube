@@ -12,7 +12,7 @@ import {
   faPhoneSlash,
 } from "@fortawesome/free-solid-svg-icons";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://your-tube-4yf7.onrender.com/");
 
 const CallRoom = () => {
   const [roomId, setRoomId] = useState("");
