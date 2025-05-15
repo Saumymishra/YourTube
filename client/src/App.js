@@ -14,7 +14,6 @@ import { getallcomment } from './action/comment';
 import { getallhistory } from './action/history';
 import { getalllikedvideo } from './action/likedvideo';
 import { getallwatchlater } from './action/watchlater';
-import CallRoom from './Pages/CallRoom/CallRoom';
 
 function App() {
   const [toggledrawersidebar, settogledrawersidebar] = useState({

@@ -31,7 +31,8 @@ const VideoPlayer = ({ videoId, user }) => {
 
   useEffect(() => {
     if (!user) return;
-    const videoPath = `/uploads/qualities/${videoId}-${quality}.mp4`;
+    const API_URL = process.env.REACT_APP_API_URL;
+    const videoPath = `${API_URL}/uploads/qualities/${videoId}-${quality}.mp4`;
     setVideoSrc(videoPath);
 
     const today = new Date().toDateString();
