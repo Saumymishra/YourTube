@@ -1,6 +1,35 @@
 # YourTube - A YouTube Clone
 
+![Stars](https://img.shields.io/github/stars/Vashu2003/Your-Tube?style=social)
+![License](https://img.shields.io/github/license/Vashu2003/Your-Tube)
+![Issues](https://img.shields.io/github/issues/Vashu2003/Your-Tube)
+![Forks](https://img.shields.io/github/forks/Vashu2003/Your-Tube?style=social)
+
 YourTube is a full-stack YouTube clone built with React and Node.js, featuring video upload, playback, user channels, and real-time video calls.
+
+## Live Demo
+
+- Frontend: [https://your-tube-01.netlify.app/](https://your-tube-01.netlify.app/)
+- Backend: [https://your-tube-4yf7.onrender.com/](https://your-tube-4yf7.onrender.com/)
+
+## 📸 Screenshots
+
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="./src/assets/Screenshot 2025-04-02 001617.png" width="250" /></td>
+      <td><img src="./src/assets/Screenshot 2025-04-02 001643.png" width="250" /></td>
+      <td><img src="./src/assets/Screenshot 2025-04-02 001701.png" width="250" /></td>
+      <td><img src="./src/assets/Screenshot 2025-04-02 001718.png" width="250" /></td>
+    </tr>
+    <tr>
+      <td><img src="./src/assets/Screenshot 2025-04-02 001847.png" width="250" /></td>
+      <td><img src="./src/assets/Screenshot 2025-04-02 001904.png" width="250" /></td>
+      <td><img src="./src/assets/Screenshot 2025-04-02 001959.png" width="250" /></td>
+      <td></td> <!-- leave last cell empty for 7 images -->
+    </tr>
+  </table>
+</div>
 
 ## Features
 
