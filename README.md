@@ -17,16 +17,16 @@ YourTube is a full-stack YouTube clone built with React and Node.js, featuring v
 <div align="center">
   <table>
     <tr>
-      <td><img src="./src/assets/Screenshot 2025-04-02 001617.png" width="250" /></td>
-      <td><img src="./src/assets/Screenshot 2025-04-02 001643.png" width="250" /></td>
-      <td><img src="./src/assets/Screenshot 2025-04-02 001701.png" width="250" /></td>
-      <td><img src="./src/assets/Screenshot 2025-04-02 001718.png" width="250" /></td>
+      <td><img src="client/public/Screenshots/Screenshot 2025-05-15 140828.png" width="250" /></td>
+      <td><img src="client/public/Screenshots/Screenshot 2025-05-15 140847.png" width="250" /></td>
+      <td><img src="client/public/Screenshots/Screenshot 2025-05-15 140906.png" width="250" /></td>
+      <td><img src="client/public/Screenshots/Screenshot 2025-05-15 140921.png" width="250" /></td>
     </tr>
     <tr>
-      <td><img src="./src/assets/Screenshot 2025-04-02 001847.png" width="250" /></td>
-      <td><img src="./src/assets/Screenshot 2025-04-02 001904.png" width="250" /></td>
-      <td><img src="./src/assets/Screenshot 2025-04-02 001959.png" width="250" /></td>
-      <td></td> <!-- leave last cell empty for 7 images -->
+      <td><img src="client/public/Screenshots/Screenshot 2025-05-15 140938.png" width="250" /></td>
+      <td><img src="client/public/Screenshots/Screenshot 2025-05-15 140953.png" width="250" /></td>
+      <td><img src="client/public/Screenshots/Screenshot 2025-05-15 141036.png" width="250" /></td>
+      <td><img src="client/public/Screenshots/Screenshot 2025-05-15 141056.png" width="250" /></td>
     </tr>
   </table>
 </div>
