@@ -21,7 +21,7 @@ const server = http.createServer(app); // <-- Use HTTP server for Socket.IO
 // Socket.IO setup
 const io = new Server(server, {
     cors: {
-        origin: "whimsical-douhua-404f2b.netlify.app", // your frontend origin
+        origin: "https://whimsical-douhua-404f2b.netlify.app", // your frontend origin
         methods: ["GET", "POST"]
     }
 });
@@ -55,7 +55,7 @@ io.on('connection', socket => {
 
 // CORS Configuration
 const corsOptions = {
-    origin: 'whimsical-douhua-404f2b.netlify.app',
+    origin: 'https://whimsical-douhua-404f2b.netlify.app',
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],
