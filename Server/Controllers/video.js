@@ -146,7 +146,6 @@ export const deleteVideoById = async (req, res) => {
 
 export const downloadVideo = async (req, res) => {
   try {
-
     const user = await User.findById(req.user.id);
     const video = await videofile.findById(req.params.id);
 
@@ -155,16 +154,22 @@ export const downloadVideo = async (req, res) => {
     }
 
     const today = new Date().toDateString();
-    // if(!user.isPremium) {
-    //   const lastDownload = user.lastDownloadDate?.toDateString();
-    //   if (lastDownload === today) {
-    //     return res.status(403).json({
-    //       message: "Download limit reached for today. Upgrade to premium.",
-    //     });
-    //   }
-    //   user.lastDownloadDate = new Date();
-    //   await user.save();
-    // } 
+
+    if (!user.isPremium) {
+      const lastDownload = user.lastDownloadDate
+        ? new Date(user.lastDownloadDate).toDateString()
+        : null;
+
+      if (lastDownload === today) {
+        return res.status(403).json({
+          message: "Download limit reached for today. Upgrade to premium.",
+        });
+      }
+
+      // Update lastDownloadDate to today
+      user.lastDownloadDate = new Date();
+      await user.save();
+    }
 
     const quality = video.videoQualities.find((q) => q.quality === "720p");
     if (!quality) {
@@ -172,15 +177,15 @@ export const downloadVideo = async (req, res) => {
     }
 
     // Remove leading slash and resolve absolute path
-    const relativePath = quality.path.replace(/^\/+/, ""); // remove leading slash
+    const relativePath = quality.path.replace(/^\/+/, "");
     const absolutePath = path.join(__dirname, "..", relativePath);
-
 
     if (!fs.existsSync(absolutePath)) {
       return res.status(404).json({ message: "File not found on server." });
     }
-    return res.download(absolutePath);
+
     console.log("Downloaded successfully.");
+    return res.download(absolutePath);
   } catch (error) {
     console.error("Download failed:", error);
     return res

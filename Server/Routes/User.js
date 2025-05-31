@@ -1,5 +1,5 @@
 import express from "express";
-import { login } from "../Controllers/Auth.js";
+import { login,getUserProfile } from "../Controllers/Auth.js";
 import { updatechaneldata, getallchanels } from "../Controllers/channel.js";
 import { createOrder, verifyPayment } from "../Controllers/paymentController.js"; // ➕ Add Razorpay controllers
 
@@ -8,6 +8,8 @@ const routes = express.Router();
 routes.post('/login', login);
 routes.patch('/update/:id', updatechaneldata);
 routes.get('/getallchannel', getallchanels);
+routes.get("/profile", getUserProfile);
+
 
 // 🔽 Razorpay Routes
 routes.post('/create-order', createOrder);       // ➕ Create payment order

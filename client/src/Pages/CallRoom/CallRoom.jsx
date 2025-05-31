@@ -12,7 +12,7 @@ import {
   faPhoneSlash,
 } from "@fortawesome/free-solid-svg-icons";
 
-const socket = io("https://your-tube-4yf7.onrender.com/");
+const socket = io("http://localhost:5000");
 
 const CallRoom = () => {
   const [roomId, setRoomId] = useState("");
@@ -282,17 +282,48 @@ const CallRoom = () => {
   return (
     <div className="call-room-container">
       {!joined ? (
-        <div className="join-container">
-          <input
-            type="text"
-            className="room-input"
-            value={roomId}
-            onChange={(e) => setRoomId(e.target.value)}
-            placeholder="Enter Room Code"
-          />
-          <button className="join-button" onClick={joinRoom}>
-            Join Room
-          </button>
+        <div style={{
+          display:"flex",
+          justifyContent:"space-around",
+          height: "100vh",
+          flexDirection: "column",
+        }
+        }>
+          <div
+            style={{
+              backgroundColor: "#fff3cd",
+              color: "#856404",
+              border: "1px solid #ffeeba",
+              borderRadius: "4px",
+              padding: "10px 15px",
+              margin: "10px 0",
+              fontSize: "14px",
+            }}
+          >
+            ⚠️ <strong>IMPORTANT:</strong> <br /> <br /> - For creating a room, you can use any random characters or digits
+            (e.g., "abc123", "room5678").<br /> <br />- Just remember to share this room code
+            exactly with anyone joining!<br /> <br />
+            - The <em>"Create Room"</em> and{" "}
+            <em>"Join Room"</em> buttons must both use the same room code.<br /> <br /> - This
+            ensures you and your friend connect to the same video chat room.
+            <br />
+            
+          </div>
+          <div className="join-container">
+            <input
+              type="text"
+              className="room-input"
+              value={roomId}
+              onChange={(e) => setRoomId(e.target.value)}
+              placeholder="Enter Room Code"
+            />
+            <button className="join-button" onClick={joinRoom}>
+              Create Room
+            </button>
+            <button className="join-button" onClick={joinRoom}>
+              Join Room
+            </button>
+          </div>
         </div>
       ) : (
         <>
@@ -330,7 +361,7 @@ const CallRoom = () => {
               <FontAwesomeIcon
                 icon={isRecording ? faCircleStop : faRecordVinyl}
               />
-            </button> 
+            </button>
             <button className="icon-button" onClick={endCall}>
               <FontAwesomeIcon icon={faPhoneSlash} />
             </button>

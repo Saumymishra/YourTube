@@ -1,41 +1,34 @@
 import axios from "axios";
-// https://your-tube-4yf7.onrender.com/
-// const API = axios.create({ baseURL: `http://localhost:5000/` });
-const API = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
-    withCredentials: true
-});
 
+const API = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+  withCredentials: true
+});
 
 API.interceptors.request.use((req) => {
-    if (localStorage.getItem("Profile")) {
-        req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem("Profile")).token}`;
-    }
-    return req;
+  if (localStorage.getItem("Profile")) {
+    req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem("Profile")).token}`;
+  }
+  return req;
 });
 
-// Auth
+// Existing API calls
 export const login = (authdata) => API.post("/user/login", authdata);
 export const updatechaneldata = (id, updatedata) => API.patch(`/user/update/${id}`, updatedata);
 export const fetchallchannel = () => API.get("/user/getallchannel");
 
 // Video Upload & Playback
 export const uploadvideo = (filedata) =>
-    API.post("/video/uploadvideo", filedata, {
-        headers: {
-            "Content-Type": "multipart/form-data",
-        },
-    });
+  API.post("/video/uploadvideo", filedata, {
+    headers: { "Content-Type": "multipart/form-data" }
+  });
 
 export const getvideos = () => API.get("/video/getvideos");
 export const likevideo = (id, Like) => API.patch(`/video/like/${id}`, { Like });
 export const viewsvideo = (id) => API.patch(`/video/view/${id}`);
 export const downloadVideo = (videoId) =>
-    API.get(`/video/download/${videoId}`, {
-      responseType: "blob", // Required to receive binary data
-    });
+  API.get(`/video/download/${videoId}`, { responseType: "blob" });
 
-// Optionally: Fetch qualities for a video
 export const getVideoQualities = (videoId) => API.get(`/video/qualities/${videoId}`);
 
 // Comments
@@ -61,3 +54,7 @@ export const deletewatchlater = (videoid, viewer) => API.delete(`/video/deletewa
 
 // Video Deletion
 export const deletevideo = (id) => API.delete(`/video/deletevideo/${id}`);
+
+// ✅ New Export
+export const getUserProfile = (userId) => axios.get(`http://localhost:5000/user/profile?userId=${userId}`)
+;

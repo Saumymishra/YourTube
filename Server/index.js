@@ -21,7 +21,7 @@ const server = http.createServer(app); // <-- Use HTTP server for Socket.IO
 // Socket.IO setup
 const io = new Server(server, {
     cors: {
-        origin: "https://your-tube-01.netlify.app", // your frontend origin
+        origin: "http://localhost:3000", // your frontend origin
         methods: ["GET", "POST"]
     }
 });
@@ -55,7 +55,7 @@ io.on('connection', socket => {
 
 // CORS Configuration
 const corsOptions = {
-    origin: 'https://your-tube-01.netlify.app',
+    origin: 'http://localhost:3000',
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     credentials: true,
     allowedHeaders: ['Content-Type', 'Authorization'],

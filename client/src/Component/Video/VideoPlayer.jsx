@@ -17,7 +17,7 @@ import GoPremiumModal from "./GoPremiumModal";
 
 const qualityOptions = ["1080p", "720p", "480p", "320p"];
 
-const VideoPlayer = ({ videoId, user }) => {
+const VideoPlayer = ({ videoId, user, setUser }) => {
   const videoRef = useRef(null);
   const [quality, setQuality] = useState("720p");
   const [videoSrc, setVideoSrc] = useState("");
@@ -27,9 +27,12 @@ const VideoPlayer = ({ videoId, user }) => {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [showQualityMenu, setShowQualityMenu] = useState(false);
   const [downloadedToday, setDownloadedToday] = useState(false);
-  const [showPremiumPopup, setShowPremiumPopup] = useState(false); // State for premium popup visibility
+  const [showPremiumPopup, setShowPremiumPopup] = useState(false);
 
   useEffect(() => {
+    // const userdata = localStorage.getItem("Profile");
+    // const parsedProfile = JSON.parse(userdata);
+    // setShowPremiumPopup(parsedProfile.isPremium);
     if (!user) return;
     const API_URL = process.env.REACT_APP_API_URL;
     const videoPath = `${API_URL}/uploads/qualities/${videoId}-${quality}.mp4`;
@@ -100,7 +103,7 @@ const VideoPlayer = ({ videoId, user }) => {
       try {
         await deletevideo(videoId);
         alert("Video deleted successfully.");
-        // Optional: redirect or update UI
+        // Optional: redirect or update UI here if needed
       } catch (error) {
         console.error("Error deleting video:", error);
         alert("Failed to delete the video.");
@@ -139,7 +142,6 @@ const VideoPlayer = ({ videoId, user }) => {
         alert(err.response?.data?.message || "Download failed");
       }
     } else {
-      // Show the premium modal if the user exceeds the download limit and isn't Premium
       setShowPremiumPopup(true);
     }
   };
@@ -249,9 +251,13 @@ const VideoPlayer = ({ videoId, user }) => {
         </div>
       </div>
 
-      {/* Show the Premium Popup if needed */}
       {showPremiumPopup && (
-        <GoPremiumModal onClose={() => setShowPremiumPopup(false)} userId={user.id} />
+        <GoPremiumModal
+          onClose={() => setShowPremiumPopup(false)}
+          userId={user?._id}
+          user={user}
+          setUser={setUser}
+        />
       )}
     </div>
   );
