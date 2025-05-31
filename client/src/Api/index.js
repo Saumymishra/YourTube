@@ -56,5 +56,5 @@ export const deletewatchlater = (videoid, viewer) => API.delete(`/video/deletewa
 export const deletevideo = (id) => API.delete(`/video/deletevideo/${id}`);
 
 // ✅ New Export
-export const getUserProfile = (userId) => axios.get(`http://localhost:5000/user/profile?userId=${userId}`)
+export const getUserProfile = (userId) => axios.get(`https://yourtube-9fdv.onrender.com/user/profile?userId=${userId}`)
 ;

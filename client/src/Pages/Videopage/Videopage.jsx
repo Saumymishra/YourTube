@@ -54,7 +54,7 @@ const Videopage = () => {
     return <div>Error: Video data is incomplete or unavailable.</div>;
   }
 
-  const videoUrl = `http://localhost:5000/uploads/qualities/${vv?.filepath.replace(/\\/g, "/")}`;
+  const videoUrl = `https://yourtube-9fdv.onrender.com/uploads/qualities/${vv?.filepath.replace(/\\/g, "/")}`;
 
   return (
     <div className="container_videoPage">
