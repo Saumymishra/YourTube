@@ -148,7 +148,7 @@ YourTube is a full-stack YouTube clone built with React and Node.js, featuring v
 
 1. Clone the repository:
 ```bash
-git clone [https://github.com/Vashu2003/Your-Tube.git](https://github.com/Vashu2003/Your-Tube.git)
+git clone [https://github.com/Saumymishra/YourTube.git](https://github.com/Saumymishra/YourTube.git)
 cd Your-Tube
 ```
 
